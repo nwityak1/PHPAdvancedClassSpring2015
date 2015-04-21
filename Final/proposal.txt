@@ -1,0 +1,27 @@
+Michael Hall & Nick Wityak
+Advanced PHP Proposal
+
+Team Idea 
+We are proposing a simple forum application where Users can register, login, and post questions and answers to various topics on the forum.  
+Admins and Users have the following actions
+•	Post comments and questions
+•	Edit and delete comments
+•	Edit and delete questions
+•	Edit Account info
+
+Development
+We will be using PHP, HTML and CSS with a MySQL database
+
+Tasks
+•	Develop a proper database to support the user actions
+•	Create a simple login
+•	Create an effective and simple front end design which supports the user’s needs
+•	Effectively configure user roles to support individual updates and deletes.  
+
+Assigned Tasks
+•	Mike will be responsible for creating the database design and functionality (1 week)
+•	Nick will be responsible for developing the UI for the forum (1 week)
+•	We will both work together as a team to develop the crud operations for each user (2-3 weeks)
+We estimate that we will complete the assignment in 4 to 5 weeks
+
+
