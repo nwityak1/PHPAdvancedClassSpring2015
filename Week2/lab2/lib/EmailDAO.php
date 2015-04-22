@@ -33,7 +33,7 @@ class EmailDAO implements IDAO {
         $db = $this->getDB();
         $stmt = $db->prepare("SELECT emailid FROM email WHERE emailid = :emailid");
          
-        if ( $stmt->execute(array(':phoneid' => $id)) && $stmt->rowCount() > 0 ) {
+        if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
             return true;
         }
          return false;
@@ -47,7 +47,7 @@ class EmailDAO implements IDAO {
          $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailtypeid, emailtype.emailtype, emailtype.active as emailtypeactive, email.logged, email.lastupdated, email.active"
                  . " FROM email LEFT JOIN emailtype on email.emailtypeid = emailtype.emailtypeid WHERE emailid = :emailid");
          
-         if ( $stmt->execute(array(':phoneid' => $id)) && $stmt->rowCount() > 0 ) {
+         if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetch(PDO::FETCH_ASSOC);
              $model->map($results);
          }

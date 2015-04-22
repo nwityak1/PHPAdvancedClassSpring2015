@@ -116,7 +116,7 @@
                 echo '<tr><td>',$value->getEmail(),'</td><td>',$value->getEmailtype(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
                 echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
                 echo '<td><a href=delete.php?emailid=',$value->getEmailid(),'>delete</a></td>';
-                echo '<td><a href=update.php?emailid=',$value->getEmailid(),'>update</a></td>';
+                echo '<td><a href=UpdateEmail.php?emailid=',$value->getEmailid(),'>update</a></td>';
                 echo '</tr>' ;
                
                 
