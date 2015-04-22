@@ -77,6 +77,9 @@
         }
         
         
+        
+                
+        
         ?>
         
         
@@ -98,17 +101,21 @@
                         {
                             echo '<option value="',$value->getEmailtypeid(),'">',$value->getEmailtype(),'</option>';
                         }
+                           
                         
                     }
+                   
              ?>               
             </select> <br />
             <label>Active:</label>
             <input type="number" max="1" min="0" name="active" value="<?php echo $active; ?>" />
              <br /><br />
             <input type="submit" value="Update" />
+            
         </form>
-         
-       
-                  
+         <br/>
+         <br/>
+         <a href ="email-test.php">Go back Home!</a>
+          
     </body>
 </html>
