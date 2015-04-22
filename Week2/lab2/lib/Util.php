@@ -4,6 +4,7 @@
  *
  * @author User
  */
+namespace week2\nwityak;
 class Util {
     
     

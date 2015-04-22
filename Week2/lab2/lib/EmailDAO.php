@@ -13,6 +13,9 @@
  * @author User
  */
 // *** NOTE this class is not complete and does not work
+
+namespace week2\nwityak;
+USE PDO;
 class EmailDAO implements IDAO {
     
     private $DB = null;

@@ -1,5 +1,6 @@
 <?php
 
+namespace week2\nwityak;
 class EmailModel implements IModel {
     
     private $emailid;

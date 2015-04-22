@@ -1,5 +1,5 @@
 <?php
-
+namespace week2\nwityak;
 interface IModel {
    
     public function reset();

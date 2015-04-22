@@ -6,6 +6,7 @@
  *
  * @author Gabriel Forti
  */
+namespace week2\nwityak;
 class Validator {
     /**
      * A method to check if an email is valid.

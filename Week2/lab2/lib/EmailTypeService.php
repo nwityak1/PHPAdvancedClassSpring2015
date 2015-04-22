@@ -1,5 +1,6 @@
 <?php
-
+namespace week2\nwityak;
+use pdo;
 class EmailTypeService {
    
     private $_errors = array();

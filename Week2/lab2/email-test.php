@@ -1,3 +1,5 @@
+<?php namespace week2\nwityak;?>
+
 <?php include './bootstrap.php'; ?>
 <!DOCTYPE html>
 <html>

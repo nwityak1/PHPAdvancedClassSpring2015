@@ -1,5 +1,5 @@
-<?php
-
+<?php namespace week2\nwityak;
+Use PDO;
 class DB {
     
     protected $db = null;

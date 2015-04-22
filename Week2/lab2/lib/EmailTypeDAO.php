@@ -1,5 +1,6 @@
 <?php
-
+namespace week2\nwityak;
+use PDO;
 class EmailTypeDAO implements IDAO {
     
     private $DB = null;
