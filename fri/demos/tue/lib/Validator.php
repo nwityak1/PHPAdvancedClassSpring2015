@@ -1,19 +1,14 @@
 <?php
 
 /**
- * Description of Validator
+ * Validator Class
+ * 
+ * A collection of functions used to validate data
  *
- * @author GForti
+ * @author Gabriel Forti
  */
+class Validator {
 
-namespace App\models\services;
-
-use App\models\interfaces\IService;
-
-class Validator implements IService {
-    
-    
-    
     /**
      * A method to check if an email is valid.
      *
@@ -24,9 +19,19 @@ class Validator implements IService {
     public function emailIsValid($email) {
         return ( is_string($email) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
     }
-     public function emailTypeIsValid($email) {
+
+    /**
+     * A method to check if the email type is valid.
+     *
+     * @param {String} [$email] - must be a valid email type
+     *
+     * @return boolean
+     */
+    public function emailTypeIsValid($email) {
         return ( is_string($email) && !empty($email) );
     }
+    
+    
     /**
      * A method to check if a phone number is valid.
      *
@@ -35,7 +40,7 @@ class Validator implements IService {
      * @return boolean
      */
     public function phoneIsValid($phone) {
-        return ( preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phone) );
+        return ( preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone) );
     }
     
     /**
@@ -59,4 +64,5 @@ class Validator implements IService {
     public function activeIsValid($type) {
         return ( is_string($type) && preg_match("/^[0-1]$/", $type) );
     }
+
 }

@@ -24,9 +24,7 @@ class Validator implements IService {
     public function emailIsValid($email) {
         return ( is_string($email) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
     }
-     public function emailTypeIsValid($email) {
-        return ( is_string($email) && !empty($email) );
-    }
+    
     /**
      * A method to check if a phone number is valid.
      *
@@ -35,7 +33,7 @@ class Validator implements IService {
      * @return boolean
      */
     public function phoneIsValid($phone) {
-        return ( preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phone) );
+        return ( preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone) );
     }
     
     /**
