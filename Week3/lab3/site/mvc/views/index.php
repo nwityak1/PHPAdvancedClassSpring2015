@@ -7,13 +7,9 @@
     <body>
         cool
         <?php
-        // put your code here
-        
-        var_dump($scope->view);
-        
-        
+
         ?>
-        
+         <a href="email">Email </a>
         <a href="emailtype">Email Type</a>
     </body>
 </html>

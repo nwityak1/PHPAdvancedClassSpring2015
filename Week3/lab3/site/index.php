@@ -184,11 +184,11 @@ use Exception;
         $index->addDIController('index', function() {            
             return new \APP\controller\IndexController();
         })
-        ->addDIController('phonetype', function() use ($_pdo,$_validator,$_log ) {
-            $_model = new PhoneTypeModel();
-            $_DAO = new PhoneTypeDAO($_pdo->getDB(), $_model, $_log);
-            $_service = new PhoneTypeService($_DAO, $_validator);
-            return new \APP\controller\PhonetypeController($_service, $_model);
+        ->addDIController('emailtype', function() use ($_pdo,$_validator,$_log ) {
+            $_model = new EmailTypeModel();
+            $_DAO = new EmailTypeDAO($_pdo->getDB(), $_model, $_log);
+            $_service = new EmailTypeService($_DAO, $_validator);
+            return new \APP\controller\EmailtypeController($_service, $_model);
         });
         // run application!
         $index->run($_scope);

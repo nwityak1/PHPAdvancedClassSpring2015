@@ -49,7 +49,7 @@
         } else {
             
             
-             echo '<table border="1" cellpadding="5"><tr><th>Phone Type</th><th>Active</th><th></th><th></th></tr>';
+             echo '<table border="1" cellpadding="5"><tr><th>Email Type</th><th>Active</th><th></th><th></th></tr>';
              foreach ($scope->view['EmailTypes'] as $value) {
                 echo '<tr>';
                 echo '<td>', $value->getEmailtype(),'</td>';

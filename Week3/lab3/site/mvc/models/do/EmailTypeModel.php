@@ -32,7 +32,7 @@ class EmailTypeModel extends BaseModel {
     }
 
     function setEmailtype($Emailtype) {
-        $this->emailtype = $emailtype;
+        $this->emailtype = $Emailtype;
     }
 
     function setActive($active) {
