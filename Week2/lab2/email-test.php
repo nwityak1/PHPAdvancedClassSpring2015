@@ -75,6 +75,7 @@
         
         
          <h3>Add email</h3>
+         <a href="emailtype-test.php"> Add Email Type </a>
         <form action="#" method="post">
             <label>Email:</label>            
             <input type="text" name="email" value="<?php echo $email; ?>" placeholder="" />
