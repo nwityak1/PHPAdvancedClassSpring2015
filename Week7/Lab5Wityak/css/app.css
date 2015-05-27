@@ -10,11 +10,11 @@ h1 {
 }
 
 
-ul.phone {
+ul.email {
     list-style: none;
 }
 
-ul.phone li {
+ul.email li {
     width: 300px;
     float: left;
     height: 300px;
@@ -26,14 +26,14 @@ ul.phone li {
     text-align: center;
 }
 
-ul.phone li:hover {
+ul.email li:hover {
   
     border: 5px solid blue;
     background-color: #eee;
     
 }
 
-ul.phone img {
+ul.email img {
   
    width: 250px;
     
