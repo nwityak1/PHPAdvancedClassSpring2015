@@ -5,11 +5,11 @@
         <title></title>
     </head>
     <body>
-        cool
+        
         <?php
 
         ?>
-         <a href="email">Email </a>
+         <a href="email">Email </a><br/><br/>
         <a href="emailtype">Email Type</a>
     </body>
 </html>

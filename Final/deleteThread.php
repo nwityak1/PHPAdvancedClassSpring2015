@@ -1,11 +1,7 @@
 <?php namespace finalproject; ?>
 <?php include './bootstrap.php'; ?>
 <?php
-    $dbConfig = array(
-        "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=Forums',
-        "DB_USER"=>'root',
-        "DB_PASSWORD"=>''
-        );
+   
     
     $pdo = new DB($dbConfig);
     $db = $pdo->getDB();

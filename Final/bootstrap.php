@@ -11,3 +11,9 @@ function load_lib($base) {
 spl_autoload_register('load_lib');
 session_start();
 session_regenerate_id(TRUE);
+
+$dbConfig = array(
+        "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=Forums',
+        "DB_USER"=>'root',
+        "DB_PASSWORD"=>''
+        );
