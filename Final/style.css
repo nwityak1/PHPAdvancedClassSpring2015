@@ -1,0 +1,266 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/html, body
+{
+height:100%;
+width:100%;
+margin:0;
+padding:0;
+}
+
+.bgStyle{
+/*background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 166, color-stop(0%, #636363), color-stop(100%, #000000));
+background-image: -webkit-radial-gradient(center center, closest-corner circle, #636363 0%, #000000 130%);
+background-image: -moz-radial-gradient(center center, closest-corner circle, #636363 0%, #000000 130%);
+background-image: -ms-radial-gradient(center center, closest-corner circle, #636363 0%, #000000 130%);
+background-image: -o-radial-gradient(center center, closest-corner circle, #636363 0%, #000000 130%);
+background-image: radial-gradient(closest-corner circle at center center, #636363 0%, #000000 130%);*/
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNzU3NTc1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSJibGFjayIvPjwvcmFkaWFsR3JhZGllbnQ+PHJlY3QgeD0iMCUiIHk9IjAlIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJibGFjayIgLz48cmVjdCB4PSIwJSIgeT0iLTY4LjI4MDklIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIzMzYuNTYxNyUiIGZpbGw9InVybCgjZykiIC8+PC9zdmc+);
+background-image: -webkit-gradient(radial, 100% 100%, 0, 100% 100%, 695, color-stop(0%, #757575), color-stop(100%, black));
+background-image: -webkit-radial-gradient(right bottom, farthest-side circle, #757575 0%, black 100%);
+background-image: -moz-radial-gradient(right bottom, farthest-side circle, #757575 0%, black 100%);
+background-image: -ms-radial-gradient(right bottom, farthest-side circle, #757575 0%, black 100%);
+background-image: -o-radial-gradient(right bottom, farthest-side circle, #757575 0%, black 100%);
+background-image: radial-gradient(farthest-side circle at right bottom, #757575 0%, black 100%);
+}
+.bgStyleMain{
+background-image: -webkit-radial-gradient(center, ellipse cover, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+}
+
+#loginContainer{
+height:400px;
+width:500px;
+position:absolute;
+top:50%;
+left:50%;
+margin-top:-243px;
+margin-left:-250px;
+visibility:visible;
+}
+
+
+
+
+
+#welcomeText{
+display:block;
+width:100%;
+text-align:center;
+font-size:48px;
+color:white;
+font-weight:100;
+text-shadow:0px 0px 15px black;
+opacity:0;
+-webkit-animation-name: fadeintext;
+-webkit-animation-duration:3s;
+-webkit-animation-delay:1s;
+-webkit-animation-fill-mode:forwards;
+background-color:transparent;
+}
+@-webkit-keyframes fadeintext {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.loginInput{
+	display:inline-block;
+width:260px; 
+-webkit-border-radius: 5px;
+background-color: #EAEAEA; 
+position:absolute;
+border: 1px solid #CACACA; 
+color: #444; 
+font-size: 1.4em; 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #FFF), color-stop(1.0, #EAEAEA)); 
+outline:0;
+padding: 5px 9px;
+}
+.loginInput:hover 
+{ 
+border: 1px solid #000000;  
+}
+
+.loginLabel{
+margin-top:15px;
+margin-left:71px;
+display:block;
+}
+
+.registerLabel{
+margin-top:15px;
+margin-left:30px;
+display:inline-block;
+width:100%;
+}
+
+.label{
+text-align:center;
+color:white;
+font-family: 'Exo 2', serif;
+margin-top:9px;
+width:100%;
+text-decoration:none;
+-webkit-transition: .25s ease-in-out;
+}
+
+.label5{
+text-align:center;
+color:white;
+font-family: 'Exo 2', serif;
+margin-top:9px;
+width:100%;
+text-decoration:none;
+}
+
+.table{
+
+color:white;
+font-family: 'Exo 2', serif;
+margin-top:9px;
+text-decoration:none;
+}
+
+#inputCheck{
+margin:0;
+display:inline-block;
+width:14px;
+height:14px;
+vertical-align:middle;
+cursor:pointer;
+}
+
+#rememberLabel{
+margin:0;
+display:inline-block;
+margin-left:5px;
+font-size:10px;
+color:white;
+font-family:'Exo 2', serif;
+cursor:pointer;
+}
+
+#keepmeRow{
+margin:0;
+width:100%;
+text-align:center;
+display:inline-block;
+}
+
+
+#buttonContainer{
+display:inline-block;
+width:100%;
+text-align:center;
+}
+
+.inputButton{
+display:inline-block;
+width:85px;
+height:50px;
+background-color:#323232;
+font-size:10px;
+color:white;
+border:none;
+-webkit-transition: .25s ease-in-out;
+border-radius:3px;
+cursor:pointer;
+}
+.inputButton:hover
+{
+background-color:#212020;
+}
+
+#registerLink
+{
+margin-left:20px;	
+}
+
+#loginLink
+{
+margin-left:20px;	
+}
+
+.secondaryMessage{
+display:block;
+text-align:center;
+margin:0;
+color:white;
+font-family: 'Exo 2', serif;
+font-size:12px;
+opacity:0;
+-webkit-animation-name: fadeintext;
+-webkit-animation-duration:7s;
+-webkit-animation-delay:4s;
+-webkit-animation-fill-mode:forwards;
+}
+@-webkit-keyframes fadeintext {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+
+
+body {
+    background-color:#EEEEEE;
+	
+    
+}
+
+#header {
+    margin:0 auto;
+    width:600px;
+    background-color:#535353;
+    height:30px;
+	text-align:center;
+	
+}
+
+#container {
+    margin:0 auto;
+    width:600px;
+    height:75px;
+    background-color:gray;
+	 box-shadow: 0px 0px 15px black;
+    
+}
+
+#container2 {
+    margin:0 auto;
+    width:600px;
+    height:175px;
+    background-color:gray;
+	 box-shadow: 0px 0px 15px black;
+    
+}
+
+#container3 {
+    margin:0 auto;
+    width:700px;
+    height:300px;
+    background-color:gray;
+	 box-shadow: 0px 0px 15px black;
+	 
+    
+}
+
+
+#container6 {
+    margin:0 auto;
+    width:700px;
+    height:800px;
+    background-color:gray;
+	 box-shadow: 0px 0px 15px black;
+	 
+    
+}
+
+.label:hover
+{
+color:#000000;
+}
+
+
+
