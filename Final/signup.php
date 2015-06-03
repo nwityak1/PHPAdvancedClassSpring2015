@@ -25,7 +25,7 @@ and open the template in the editor.
         
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
-             
+             // checks for a post request
         if ( $util->isPostRequest() ) 
         {
          // we validate only if a post has been made
@@ -33,7 +33,7 @@ and open the template in the editor.
             $errors[] = 'Email is not valid';
         }
         
-        
+        // validates password
         if ( !$validator->passwordIsValid($password) ) {
             $errors[] = 'Password is not valid';
         }  
@@ -49,10 +49,10 @@ and open the template in the editor.
         
             $SignupModel = new SignupModel();
             $SignupDAO = new SignupDAO($db, $SignupModel);   
-            
+            // Maps the signup model
             $SignupModel->map(filter_input_array(INPUT_POST));
                     
-                   
+             // saves the signup      
             if ( $SignupDAO->save($SignupModel) ) 
             {
                echo '<span class="label5"> User Added </span>';
@@ -73,6 +73,7 @@ and open the template in the editor.
             <a href="index.php" span class="label"> Home  </a> &nbsp;&nbsp;
             <a href="signin.php" span class="label"> Sign in </a>   &nbsp;&nbsp;
             <a href="forum.php" span class="label"> View Forums</a> &nbsp;&nbsp;
+            <!--  If the user is logged in the logout button is displayed--> 
             <?php if($util->isLoggedin())  echo '<a href="Logout.php" span class="label5">Logout</a>'; ?>
 			
 			
@@ -80,6 +81,7 @@ and open the template in the editor.
         </div>
         <div id="container">
             <center>
+                <!-- This is the email form --> 
             <h3 span class = "label5"> Sign up  </h3>
             <form action="#" method="post">
                 <label span class="label5"> Email </label>

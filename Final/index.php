@@ -18,7 +18,6 @@ and open the template in the editor.
         $util = new Util();
         
         
-        
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
         
@@ -30,6 +29,7 @@ and open the template in the editor.
             <a href="signup.php" span class="label"> Sign Up </a> &nbsp;&nbsp;
             <a href="signin.php" span class="label"> Sign In </a> &nbsp;&nbsp;
             <a href="forum.php" span class="label"> View Forums </a> &nbsp;&nbsp;
+            <!--  If the user is logged in then the logout button is displayed -->
             <?php if($util->isLoggedin())  echo '<a href="Logout.php" span class="label5">Logout</a>'; ?>
             
             

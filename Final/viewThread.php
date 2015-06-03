@@ -24,7 +24,7 @@ and open the template in the editor.
         $body = filter_input(INPUT_POST, 'body');
         $user = filter_input(INPUT_POST, 'user');
         
-       
+        
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
         
@@ -33,7 +33,7 @@ and open the template in the editor.
         
         
         
-        
+        // checks for a post request
          if ( $util->isPostRequest() ) 
         {
             // no post just get
@@ -41,18 +41,19 @@ and open the template in the editor.
         } 
                
         else {
+            // checks for the thread id from the get request
             $threadid = filter_input(INPUT_GET, 'threadid');
             $ThreadModel = new ThreadModel();
             //var_dump($threadid);
             
-            
+            // gets the threads by id
             $ThreadModel = $ThreadDAO->GetByID($threadid);
            //var_dump($ThreadModel);
             $title = $ThreadModel->getTitle();
             $body = $ThreadModel->getBody();
             $user = $ThreadModel->getUser();
             $created = $ThreadModel->getCreated();
-            
+            // pulls all the comments on the thread
             $AllComments = $PostDAO->GetPostsByThreadID($threadid);
           
         }
@@ -70,7 +71,7 @@ and open the template in the editor.
             
         </div>
         <div id="container3">
-             
+             <!--  This is where the get request id is stored-->
             <input type="hidden" name="threadid" value="<?php echo $threadid; ?>" />
             
             <center>
@@ -82,7 +83,7 @@ and open the template in the editor.
                     <tr> <td> <?php echo $user; ?> <td> <?php echo $body; ?></td> <td> <?php echo $created; ?> </tr>
                     
                     <?php                            
-                    
+                    // this is where the comments for the thread are displayed
                     if($AllComments != null && $threadid!=null) {
                         foreach($AllComments as $comment) {
                             echo '<tr><td >',$comment->getUser(),'</td><td>',$comment->getBody(),'</td><td>',$comment->getCreated(),'</td><tr>';
@@ -96,6 +97,7 @@ and open the template in the editor.
                 
                 
                  <br />
+                 <!-- The add post passes the get request to the next page -->
                  <a href="addPost.php?threadid=<?php echo $threadid?>" span class ="label">  Click here to add a post! </a>
                 
                 

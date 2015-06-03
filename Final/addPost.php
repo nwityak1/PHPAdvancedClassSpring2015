@@ -13,7 +13,7 @@ and open the template in the editor.
 		<link href='http://fonts.googleapis.com/css?family=Exo+2:100,400' rel='stylesheet' type='text/css' />
         <title>PHP Final Project </title>
         <?php
-        
+        /* This page is designed to add posts to each thread */ 
        
         $util = new Util();
         $validator = new Validator();
@@ -23,26 +23,25 @@ and open the template in the editor.
         
         $errors = array();
         
-        
-        
+       
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
-        
+        /* DAO for the post model */
         $PostDAO = new PostDAO($db);
                
-        
+        /* Checks for a post request */ 
          if ( $util->isPostRequest() ) 
         {
-             
+           /* pulls the thread id from the get request */   
            $threadid = filter_input(INPUT_GET, 'threadid');
               
             
-            
+            /* validates the comment */ 
             if ( !$validator->commentIsValid($body) ) {
             $errors[] = 'Comment is not valid';
             }
         
-        
+        /* validates for the username */
             if ( !$validator->usernameIsValid($user) ) {
                 $errors[] = 'Username is not valid';
             }  
@@ -56,14 +55,14 @@ and open the template in the editor.
             }
             
             else {
-                
+                 
             $PostModel = new PostModel();
             $PostModel->map(filter_input_array(INPUT_POST));
                
-                   
+               // saves the post model    
             if ( $PostDAO->save($PostModel) ) 
             {
-           
+            // lets the user know if the post was created and redirects for the forum page
               echo '<span class="label5"> Post Created </span>';
               header('Location: forum.php');
             } 
@@ -76,7 +75,7 @@ and open the template in the editor.
             
         } 
         
-        
+        // pulls the thread id with a get request
         else {
             $threadid = filter_input(INPUT_GET, 'threadid');
                      
@@ -100,12 +99,12 @@ and open the template in the editor.
         <div id="container3">
              
             
-            
+            <!-- Adds a post with the form below -->
             <center>
                 
                 <h3 span class="label"> Add a post </h3>
                 <form action="#" method="post">
-                
+                <!-- hidden field for the thread id -->
                 <input type="hidden" name="threadid" value="<?php echo $threadid; ?>" />
                 
                 <label span class="label"> User </label> 

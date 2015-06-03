@@ -24,10 +24,9 @@ and open the template in the editor.
         $errors = array();
         
        
-        
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
-        
+        // If there is a post request
         if ( $util->isPostRequest() ) 
         {
          // we validate only if a post has been made
@@ -35,7 +34,7 @@ and open the template in the editor.
             $errors[] = 'Email is not valid';
         }
         
-        
+        // validates password
         if ( !$validator->passwordIsValid($password) ) {
             $errors[] = 'Password is not valid';
         }  
@@ -54,10 +53,10 @@ and open the template in the editor.
             
             $SignupModel->map(filter_input_array(INPUT_POST));
                     
-                   
+              // This is where the login is checked      
             if ( $SignupDAO->login($SignupModel) ) 
             {
-              
+              // If the login is successful then login is set to true and the user info is pulled
               echo '<span class="label5"> Login Success</span>';
               $util->setLoggedin(true);
               $SignupDAO->GetUserInfo($db, $email, $SignupModel);
@@ -66,6 +65,7 @@ and open the template in the editor.
             } 
             else 
             {
+                // Login failed
                echo '<span class="label5"> Login Failed </span>';
             }
                    
@@ -81,11 +81,12 @@ and open the template in the editor.
             <a href="signin.php" span class="label"> Sign In </a> &nbsp;&nbsp;
             <a href="forum.php" span class="label"> View Forums</a> &nbsp;&nbsp;
             <a href="index.php"span class="label" >Home </a>&nbsp;&nbsp;
+            <!-- If the user is logged in then the logout button is displayed -->
            <?php if($util->isLoggedin())  echo '<a href="Logout.php" span class="label5">Logout</a>'; ?>
             
         </div>
         <div id="container">
-            
+            <!-- This is the sign in form --> 
             <center>
             <h3 span class="label5"> Sign In </h3>
             <form action="#" method="post">

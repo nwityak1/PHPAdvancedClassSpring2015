@@ -16,12 +16,15 @@ and open the template in the editor.
        // var_dump($_SESSION);
         $util = new Util();
         
-       
+        if ( !$util->isLoggedin() ) {
+               header('Location: signin.php');
+            } 
         
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
         
         $ThreadDAO = new ThreadDAO($db);
+        // This is where we pull all the threads 
         $threads = $ThreadDAO->GetAllThreads();
         
         ?>
@@ -42,7 +45,7 @@ and open the template in the editor.
             <center>
              <a href="addThread.php" span class="label"> Make a new thread here! </a>
             
-            
+            <!-- This is where table the threads are displayed -->
             <table border="1" cellpadding="5">
                 <th span class="table"> Title </th>
                 <th class="table"> Date Created </th>
@@ -52,7 +55,7 @@ and open the template in the editor.
                 
             <?php
             
-            
+            // This is where all the threads are displayed
             foreach($threads as $value) {
               //  var_dump($value->getId());
                 echo '<tr><td span class="table">', $value->getTitle(),'</td><td span class="table">', $value->getCreated(),'</td> <td span class="table">' ,$value->getUser(),'</td> <td span class="table"> <a href=viewThread.php?threadid=',$value->getId(),'>Join Here!</a></td><td span class="table"><a href=deleteThread.php?threadid=',$value->getId(),'>Delete</a></td></tr>';
