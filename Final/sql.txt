@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS signup (
+    id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email varchar(150) COLLATE utf8_unicode_ci NOT NULL UNIQUE KEY,
+    password varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+    created DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+    active tinyint(1) UNSIGNED NOT NULL DEFAULT '1'
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+
+create table posts (
+    postid int auto_increment,
+    threadid int,
+    user varchar(50),
+    created datetime,
+    body varchar(255),
+    primary key(postid)
+)
+
+create table thread (
+    threadid int auto_increment,
+    user varchar(50),
+    created datetime,
+    body varchar(250),
+    title varchar(250),
+    primary key(threadid)
+)
