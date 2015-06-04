@@ -4,6 +4,7 @@ namespace App\models\services;
 
 use App\models\interfaces\IController;
 use App\models\interfaces\ILogging;
+use App\models\interfaces\IService;
 use Exception;
 
  final class Index {
@@ -44,7 +45,7 @@ use Exception;
         /**
          * Run the application!
          */
-        public function run(Scope $scope) {  
+        public function run(IService $scope) {  
             $page = $this->getPage();
             if ( !$this->runController($page,$scope) ) {
                 throw new PageNotFoundException('Unsafe page "' . $page . '" requested');               
@@ -181,15 +182,31 @@ use Exception;
         $_validator = new Validator();
         //http://php.net/manual/en/functions.anonymous.php
 
-        $index->addDIController('index', function() {            
+        $_emailTypemodel = new EmailTypeModel();
+        $_emailmodel = new EmailModel();
+        
+        $_emailTypeDAO = new EmailTypeDAO($_pdo->getDB(), $_emailTypemodel, $_log);
+        $_emailDAO = new EmailDAO($_pdo->getDB(), $_emailmodel, $_log);
+        
+        
+        
+        
+        $_emailTypeService = new EmailTypeService($_emailTypeDAO, $_validator, $_emailTypemodel );
+        $_emailService = new EmailService($_emailDAO, $_emailTypeService, $_validator, $_emailmodel);
+        
+        
+            $index->addDIController('index', function() {            
             return new \APP\controller\IndexController();
         })
-        ->addDIController('emailtype', function() use ($_pdo,$_validator,$_log ) {
-            $_model = new EmailTypeModel();
-            $_DAO = new EmailTypeDAO($_pdo->getDB(), $_model, $_log);
-            $_service = new EmailTypeService($_DAO, $_validator);
-            return new \APP\controller\EmailtypeController($_service, $_model);
-        });
+        ->addDIController('emailtype', function() use ($_emailTypeService ) { 
+            return new \APP\controller\EmailtypeController($_emailTypeService);
+        })
+        
+        ->addDIController('email', function() use ($_emailService ) {                        
+            return new \APP\controller\EmailController($_emailService);
+        })
+        
+        ;
         // run application!
         $index->run($_scope);
     }

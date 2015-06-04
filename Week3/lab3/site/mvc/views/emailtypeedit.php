@@ -38,7 +38,7 @@
          
         <form action="#" method="post">
             <input type="hidden" name="action" value="add" />
-            <input type="submit" value="ADD Page" /> 
+            
         </form>
          
          
@@ -64,6 +64,6 @@
          
          
          ?>
-         
+         <a href ="index.php">Go back Home!</a>
     </body>
 </html>

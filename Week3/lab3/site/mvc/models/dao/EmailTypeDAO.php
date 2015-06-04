@@ -2,16 +2,14 @@
 /**
  * Description of EmailTypeDAO
  *
- * @author User
+ * @author Nick
  */
 
 namespace App\models\services;
-
 use App\models\interfaces\IDAO;
 use App\models\interfaces\IModel;
 use App\models\interfaces\ILogging;
 use \PDO;
-
 class EmailTypeDAO extends BaseDAO implements IDAO {
     
     public function __construct( PDO $db, IModel $model, ILogging $log ) {        
@@ -20,7 +18,7 @@ class EmailTypeDAO extends BaseDAO implements IDAO {
         $this->setLog($log);
     }
           
-    protected function idExisit($id) {
+    public function idExisit($id) {
         
         $db = $this->getDB();
         $stmt = $db->prepare("SELECT * FROM emailtype WHERE emailtypeid = :emailtypeid");
@@ -55,7 +53,7 @@ class EmailTypeDAO extends BaseDAO implements IDAO {
          $binds = array( ":emailtype" => $model->getEmailtype(),
                           ":active" => $model->getActive()
                     );
-                         
+                      
          if ( !$this->idExisit($model->getEmailtypeid()) ) {
              
              $stmt = $db->prepare("INSERT INTO emailtype SET emailtype = :emailtype, active = :active");
@@ -100,7 +98,6 @@ class EmailTypeDAO extends BaseDAO implements IDAO {
           
         $db = $this->getDB();         
         $stmt = $db->prepare("Delete FROM emailtype WHERE emailtypeid = :emailtypeid");
-
         if ( $stmt->execute(array(':emailtypeid' => $id)) && $stmt->rowCount() > 0 ) {
             return true;
         } else {
@@ -119,7 +116,6 @@ class EmailTypeDAO extends BaseDAO implements IDAO {
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
             foreach ($results as $value) {
                $model = clone $this->getModel();
                $model->reset()->map($value);

@@ -50,7 +50,7 @@ and open the template in the editor.
          
         <form action="#" method="post">
             <input type="hidden" name="action" value="add" />
-            <input type="submit" value="ADD Page" /> 
+           
         </form>
          <?php
          
@@ -74,5 +74,7 @@ and open the template in the editor.
         }
 
          ?>
+         
+         <a href ="index.php">Go back Home!</a>
     </body>
 </html>

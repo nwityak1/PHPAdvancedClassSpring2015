@@ -6,36 +6,34 @@
     </head>
     <body>
         <?php
-   
-         if ( $scope->util->isPostRequest() ) {
-             
-             if ( isset($scope->view['errors']) ) {
-                print_r($scope->view['errors']);
-             }
-             
-             if ( isset($scope->view['saved']) && $scope->view['saved'] ) {
-                  echo 'Email Added';
-             }
-             
-             if ( isset($scope->view['deleted']) && $scope->view['deleted'] ) {
-                  echo 'Email deleted';
-             }
-         }
+        // put your code here
         
+        
+         if ( isset($scope->view['updated']) ) {
+            if( $scope->view['updated'] ) {        
+                 echo 'Email Updated';
+            } else {
+                 echo 'Email NOT Updated';
+            }                 
+        }
+        
+            $emailid = $scope->view['model']->getEmailid();
             $email = $scope->view['model']->getEmail();
             $active = $scope->view['model']->getActive();
-            $EmailTypeid = $scope->view['model']->getEmailtypeid();
+            $emailTypeid = $scope->view['model']->getEmailtypeid();
         ?>
         <br />
         <a href="emailtype">Email Type</a>
-        <br />
-        <h3>Add Email</h3>
+        <a href="email">Email</a>
+        
+        <h3>Add email</h3>
         <form action="#" method="post">
             <label>Email:</label>            
             <input type="text" name="email" value="<?php echo $email; ?>" placeholder="" />
             <br /><br />
             <label>Active:</label>
             <input type="number" max="1" min="0" name="active" value="<?php echo $active; ?>" />
+            
             <br /><br />
             <label>Email Type:</label>
             <select name="emailtypeid">
@@ -49,17 +47,21 @@
                 }
             ?>
             </select>
-
+            
              <br /><br />
-            <input type="hidden" name="action" value="create" />
+             <input type="hidden"  name="emailid" value="<?php echo $emailid; ?>" />
+            <input type="hidden" name="action" value="update" />
             <input type="submit" value="Submit" />
         </form>
+        
+        
+        
          <br />
          <br />
          
         <form action="#" method="post">
             <input type="hidden" name="action" value="add" />
-            
+          
         </form>
         
          <?php 
@@ -78,9 +80,9 @@
                 }
                 echo '</table>';
             }
+           
+           
          ?>
-         
-          <a href ="index.php">Go back Home!</a>
-         
+            <a href ="index.php">Go back Home!</a>
     </body>
 </html>

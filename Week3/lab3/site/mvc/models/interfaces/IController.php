@@ -6,9 +6,9 @@
  */
 
 namespace App\models\interfaces;
-
-use App\models\services\Scope;
+use App\models\interfaces\IService;
 
 interface IController {
-    public function execute(Scope $scope);
+    
+    public function execute(IService $scope);
 }
